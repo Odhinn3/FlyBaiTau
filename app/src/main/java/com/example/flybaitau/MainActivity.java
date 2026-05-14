@@ -466,11 +466,23 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private void saveMission(List<Waypoint> wpList) {
         try {
             File outputDir = getExternalFilesDir(null);
+            if (outputDir == null) {
+                outputDir = getFilesDir(); // fallback на внутреннее хранилище
+            }
             KmzGenerator generator = new KmzGenerator();
             File kmzFile = generator.generate(wpList, outputDir, "grid_mission");
-            Toast.makeText(this,
-                    "Сохранено " + wpList.size() + " точек: " + kmzFile.getName(),
-                    Toast.LENGTH_LONG).show();
+
+            android.net.Uri fileUri = androidx.core.content.FileProvider.getUriForFile(
+                    this, getPackageName() + ".provider", kmzFile);
+
+            android.content.Intent shareIntent = new android.content.Intent(
+                    android.content.Intent.ACTION_SEND);
+            shareIntent.setType("*/*");
+            shareIntent.putExtra(android.content.Intent.EXTRA_STREAM, fileUri);
+            shareIntent.addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            startActivity(android.content.Intent.createChooser(shareIntent,
+                    "Сохранить KMZ (" + wpList.size() + " точек)"));
+
         } catch (IOException e) {
             Toast.makeText(this, "Ошибка: " + e.getMessage(),
                     Toast.LENGTH_LONG).show();

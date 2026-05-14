@@ -162,7 +162,7 @@ public class KmzGenerator {
             sb.append("          <wpml:actionTriggerType>reachPoint</wpml:actionTriggerType>\n");
             sb.append("        </wpml:actionTrigger>\n");
 
-            // Действие 1: повернуть дрон
+            // Действие 0: повернуть дрон
             sb.append("        <wpml:action>\n");
             sb.append("          <wpml:actionId>0</wpml:actionId>\n");
             sb.append("          <wpml:actionActuatorFunc>rotateYaw</wpml:actionActuatorFunc>\n");
@@ -174,9 +174,28 @@ public class KmzGenerator {
             sb.append("          </wpml:actionActuatorFuncParam>\n");
             sb.append("        </wpml:action>\n");
 
-            // Действие 2: сделать фото
+            // Действие 1: наклонить камеру вертикально вниз
             sb.append("        <wpml:action>\n");
             sb.append("          <wpml:actionId>1</wpml:actionId>\n");
+            sb.append("          <wpml:actionActuatorFunc>gimbalRotate</wpml:actionActuatorFunc>\n");
+            sb.append("          <wpml:actionActuatorFuncParam>\n");
+            sb.append("            <wpml:gimbalHeadingYawBase>aircraft</wpml:gimbalHeadingYawBase>\n");
+            sb.append("            <wpml:gimbalRotateMode>absoluteAngle</wpml:gimbalRotateMode>\n");
+            sb.append("            <wpml:gimbalPitchRotateEnable>1</wpml:gimbalPitchRotateEnable>\n");
+            sb.append("            <wpml:gimbalPitchRotateAngle>-90</wpml:gimbalPitchRotateAngle>\n");
+            sb.append("            <wpml:gimbalRollRotateEnable>0</wpml:gimbalRollRotateEnable>\n");
+            sb.append("            <wpml:gimbalRollRotateAngle>0</wpml:gimbalRollRotateAngle>\n");
+            sb.append("            <wpml:gimbalYawRotateEnable>0</wpml:gimbalYawRotateEnable>\n");
+            sb.append("            <wpml:gimbalYawRotateAngle>0</wpml:gimbalYawRotateAngle>\n");
+            sb.append("            <wpml:gimbalRotateTimeEnable>0</wpml:gimbalRotateTimeEnable>\n");
+            sb.append("            <wpml:gimbalRotateTime>0</wpml:gimbalRotateTime>\n");
+            sb.append("            <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>\n");
+            sb.append("          </wpml:actionActuatorFuncParam>\n");
+            sb.append("        </wpml:action>\n");
+
+            // Действие 2: сделать фото
+            sb.append("        <wpml:action>\n");
+            sb.append("          <wpml:actionId>2</wpml:actionId>\n");
             sb.append("          <wpml:actionActuatorFunc>takePhoto</wpml:actionActuatorFunc>\n");
             sb.append("          <wpml:actionActuatorFuncParam>\n");
             sb.append("            <wpml:payloadPositionIndex>0</wpml:payloadPositionIndex>\n");
