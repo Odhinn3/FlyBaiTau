@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Высота полёта (м)"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etAltitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:text="100" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Скорость (м/с)"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etSpeed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:text="10" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Фронтальное перекрытие (%)"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/seekFrontlap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="90"
+            android:progress="80" />
+
+        <TextView
+            android:id="@+id/tvFrontlap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="80%" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Боковое перекрытие (%)"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/seekSidelap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="90"
+            android:progress="70" />
+
+        <TextView
+            android:id="@+id/tvSidelap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="70%" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Азимут профилей (°)"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/seekAzimuth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="180"
+            android:progress="90" />
+
+        <TextView
+            android:id="@+id/tvAzimuth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="90°" />
+
+    </LinearLayout>
+
+</ScrollView>
