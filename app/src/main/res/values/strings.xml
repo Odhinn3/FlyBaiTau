@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FlyBaiTau</string>
+    <string name="vertices_zero">Вершин: 0</string>
+    <string name="points_zero">Точек: 0</string>
 </resources>
